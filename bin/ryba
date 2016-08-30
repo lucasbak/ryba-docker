@@ -1,0 +1,14 @@
+#!/bin/bash
+. run-env.sh
+volumes=' '
+while read -r name
+do
+    base_name=$(basename $name)
+    volumes="${volumes} -v ${name}:/ryba/ryba/${base_name} "
+done < components
+if [ -d "$CUSTOM_CONFIG_PATH" ]; 
+  then
+    docker run --net=host --name ryba --rm -v $CUSTOM_CONFIG_PATH:/ryba/ryba-cluster $volumes ryba/ryba-docker:1.0 $@
+  else
+    docker run --net=host --name ryba --rm -v $CONFIG_PATH/conf:/ryba/ryba-cluster/conf -v $CONFIG_PATH/resources:/ryba/ryba-cluster/resources -v $CONFIG_PATH/cache:/ryba/ryba-cluster/cache $volumes ryba/ryba-docker:1.0 $@
+fi;
