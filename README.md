@@ -22,17 +22,44 @@ initiate environment first by running
  N.B.-2: For boot2docker instructions refer to doc, you should use docker-machine
 instead.
 
-## Run
+## Ryba Users
 
+### Set up Cluster configuration
+The `CONFIG_PATH` environment variable must be set your cluster configuration path.
+You can set it on your profile file, or you can set it manually in the run-env.sh file.
 Open the run.sh file and replace the value of `CONFIG_PATH` to your ryba-cluster
 project.
+
 Your ryba-cluster  config's layout should match [ryba-cluster][ryba-cluster-site] one.
-i.e. have at least `conf` folder.
+i.e. have at least `conf` folder. Checkout the [ryba-cluster example][ryba-cluster-site]
 
-## Development Mode
+### Launch a command
+Now that your configuration is ready you can use ryba right now.
+```bash
+cd /my/local/path/ryba-docker
+bin/ryba install 
+```
 
+## Ryba Developers
+
+### Components
 You can also use ryba-docker to test the integration of your new ryba component.
-For this in run.sh add the new component path (ie. /my/computer/ryba/new_component)
-inside the `components` file. One line per component to test
+For this, add the new component (ie. /my/computer/ryba/new_component)
+inside the `components` file. One line per component you want to integrate.
+
+### Operations
+
+You can override the command executed by the file ryba in the `bin` folder.
+For this you can set the `CUSTOM_RUN_FILE` environment variable. 
+```bash
+  export CUSTOM_RUN_FILE=/Users/ryba/ryba-docker/examples/custom_run.sh
+  bin/ryba install
+```
+A use case might be to overwrite the entrypoint.sh file if you need to execute 
+some specials command inside the container before running ryba.
+Checkout [the example][ryba-docker-site-example].
 
 [ryba-site]:(https://github.com/ryba-io/ryba)
+[ryba-cluster-site]: (https://github.com/ryba-io/ryba-cluster)
+[ryba-docker-site]: (https://github.com/lucasbak/ryba-docker)
+[ryba-docker-site-example]: (https://github.com/lucasbak/ryba-docker/examples)
