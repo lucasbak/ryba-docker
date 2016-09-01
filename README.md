@@ -7,20 +7,26 @@ environment by using docker.
 
 Build the container, set your cluster configuration and that's it !!! 
 
+You can eighter pull directly the docker container or build the container yourself, if you want last dependencies.
+## Pull
+
+```bash
+  docker pull lucasbak/ryba-docker
+```
 ## Build
 
 Simply run the following command to build the container
 ```bash
 docker build  -t ryba/ryba-docker:1.0 .
 ```
-N.B.-1: It assumes you use docker native. For adminsitrators using docker-machine
+N.B: It assumes you use docker native.  
+For adminsitrators using docker-machine
 initiate environment first by running
- - on docker-machine
+  
  ```bash
   eval "$(docker-machine env my_machine)"
  ```
- N.B.-2: For boot2docker instructions refer to doc, you should use docker-machine
-instead.
+For boot2docker instructions refer to doc.
 
 ## Ryba Users
 
@@ -57,7 +63,8 @@ For this you can set the `CUSTOM_RUN_FILE` environment variable.
 ```
 A use case might be to overwrite the entrypoint.sh file if you need to execute 
 some specials command inside the container before running ryba.
-Checkout [the example][ryba-docker-site-example].
+Checkout the [example][ryba-docker-site-example].
+
 
 [ryba-site]:(https://github.com/ryba-io/ryba)
 [ryba-cluster-site]: (https://github.com/ryba-io/ryba-cluster)
