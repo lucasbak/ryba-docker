@@ -2,13 +2,13 @@ FROM centos:7
 MAINTAINER Lucas BAKALIAN
 
 WORKDIR '/tmp'
-RUN yum install -y wget tar python krb5-server krb5-libs krb5-workstation vim curl
-RUN yum install -y gcc-c++ make
-RUN echo 'y' | yum groupinstall "Development Tools"
+RUN yum install -y wget tar vim curl git
 
 WORKDIR '/tmp'
-RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
-RUN yum -y install nodejs
+RUN wget --no-check-certificate https://nodejs.org/download/release/v6.2.2/node-v6.2.2-linux-x64.tar.gz
+WORKDIR /usr/local
+RUN tar --strip-components 1 -xzf /tmp/node-v6.2.2-linux-x64.tar.gz
+RUN node -v
 RUN npm install -g bower
 
 WORKDIR '/ryba'

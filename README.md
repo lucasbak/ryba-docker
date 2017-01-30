@@ -17,7 +17,7 @@ You can eighter pull directly the docker container or build the container yourse
 
 Simply run the following command to build the container
 ```bash
-docker build  -t ryba/ryba-docker:1.0 .
+docker build  -t lucasbak/ryba-docker:latest .
 ```
 N.B: It assumes you use docker native.  
 For adminsitrators using docker-machine
