@@ -1,0 +1,9 @@
+version: '2'
+services:
+  ryba:
+    build: ./ryba
+    image: ryba/ryba-docker:1.0
+    volumes:
+      - ../../ryba-env-metal/conf:/ryba/ryba-env-metal/conf
+      - ../../ryba-env-metal/bin:/ryba/ryba-env-metal/bin
+
