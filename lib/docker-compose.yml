@@ -6,4 +6,5 @@ services:
     volumes:
       - ../../ryba-env-metal/conf:/ryba/ryba-env-metal/conf
       - ../../ryba-env-metal/bin:/ryba/ryba-env-metal/bin
+      - ../../ryba-env-metal/lib:/ryba/ryba-env-metal/lib
 
